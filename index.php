@@ -15,6 +15,7 @@
             $_SESSION["error"] = "enter correct details.";
             header( 'Location: index.php' ) ;
             return;
+            
         }
    }
 
