@@ -1,8 +1,10 @@
-
 <?php
     session_start();
+
     if ( isset($_POST["email"]) && isset($_POST["pwd"]) ) {
+        // enters the block if login button is clicked
         unset($_SESSION["account"]);  // Logout current user
+
         if ($_POST[email] == 'abc@co.com' && $_POST["pwd"] == '123') {
             $_SESSION["account"] = $_POST["email"];
             $_SESSION["success"] = "Logged in.";
@@ -14,6 +16,15 @@
             header( 'Location: index.php' ) ;
             return;
         }
+   }
+
+
+     if ( isset($_POST["uid_reg"]) && isset($_POST["email_reg"]) && isset($_POST["pwd_reg"]) ) {
+      // enters the block if register button is clicked
+
+      // unset($_SESSION["account"]);  // Logout current user
+      $_SESSION["error"] = "register";
+      
    }
 ?>
 <!DOCTYPE html>
@@ -71,8 +82,8 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
               <div class="panel-heading">
         
                 <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#login">Login</a></li>
-                  <li><a data-toggle="tab" href="#register">Register</a></li>
+                  <li class="active"><a data-toggle="tab" href="#login" onclick="login()">Login</a></li>
+                  <li><a data-toggle="tab" href="#register" onclick="register()">Register</a></li>
                 </ul>
 
               </div>
@@ -80,6 +91,8 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
               <div class="panel-body">
                 
                 <div class="tab-content">
+
+                  <!-- login form [starts] -->
                     <div id="login" class="tab-pane fade in active">
                       
                       <form role="form" method="post">
@@ -93,29 +106,36 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
                           <label for"pwd">Password:</label>
                           <input type="password" class="form-control" id="pwd" name="pwd">
                         </div>
-                        <button type="submit" class="btn btn-default">login</button>
+                        <button type="submit" class="btn btn-default" name="login">login</button>
 
                       </form>
                     
                     </div>
-
+                    <!-- login form [ends] -->
+                    
+                    <!-- Signup panel [starts] -->
                     <div id="register" class="tab-pane fade">
-
 
                       <form role="form" method="post">
                         <div class="form-group">
+                          <label for="usr">User name:</label>
+                          <input type="text" class="form-control" id="email" name="uid_reg">
+                        </div>
+
+                        <div class="form-group">
                           <label for="email">Email address:</label>
-                          <input type="email" class="form-control" id="email" name="email">
+                          <input type="email" class="form-control" id="email" name="email_reg">
                         </div>
                         <div class="form-group">
                           <label for"pwd">Password:</label>
-                          <input type="password" class="form-control" id="pwd" name="pwd">
+                          <input type="password" class="form-control" id="pwd" name="pwd_reg">
                         </div>
-                        <button type="submit" class="btn btn-default">login</button>
-
+                        <button type="submit" class="btn btn-default">Register</button>
                       </form> 
 
                     </div>
+                    <!-- Signup panel [ends] -->
+
                   </div>
 
 
@@ -142,5 +162,15 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
       </div>
       
   	</div>
+
+    <script type="text/javascript">
+    function login{
+      $.session.set('lastTabClick','login');
+    }
+    function register{
+      $.session.set('lastTabClick','register');
+    }
+
+    </script>
   </body>
 </html>
