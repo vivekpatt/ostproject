@@ -18,6 +18,8 @@
         }
    }
 
+
+// 
      if ( isset($_POST["uid_reg"]) && isset($_POST["email_reg"]) && isset($_POST["pwd_reg"]) ) {
       // enters the block if register button is clicked
 
