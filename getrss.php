@@ -18,6 +18,13 @@ if($q=="Google") {
 
 $xmlDoc	 = new DOMDocument();  // blank dom document
 $xmlDoc->load($xml);
+
+
+$xmlDoc->formatOutput = true; // set the formatOutput attribute of domDocument to true
+
+    // save XML as string or file 
+    $test1 = $xmlDoc->saveXML(); // put string in test1
+    $xmlDoc->save('test1.xml'); // save as file
 /*
 //get elements from "<channel>"
 $channel=$xmlDoc->getElementsByTagName('channel')->item(0);
@@ -46,6 +53,13 @@ for ($i=0; $i<=4; $i++) {
   ->item(0)->childNodes->item(0)->nodeValue;
   $item_desc=$x->item($i)->getElementsByTagName('description')
   ->item(0)->childNodes->item(0)->nodeValue;
+
+$xmlDoc->formatOutput = true; // set the formatOutput attribute of domDocument to true
+
+    // save XML as string or file 
+    $test2 = $xmlDoc->saveXML(); // put string in test1
+    $xmlDoc->save('test2.xml');
+
   echo ("<p><a href='" . $item_link
   . "'>" . $item_title . "</a>");
   echo ("<br>");

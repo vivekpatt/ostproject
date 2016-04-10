@@ -99,7 +99,6 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
  $(".menuitem").mousedown(function(){
   var rss = $(this).children().text()
   $("#rsstitle").text(rss);
-  alert(rss);
   showRSS(rss);
 });
 
@@ -115,13 +114,17 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
   } else {  // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
+  
+  xmlhttp.open("GET","getrss.php?q="+str,true);
+  xmlhttp.send();
+
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      alert(xmlhttp.responseText);
       document.getElementById("rssOutput").innerHTML=xmlhttp.responseText;
     }
   }
-  xmlhttp.open("GET","getrss.php?q="+str,true);
-  xmlhttp.send();
+
 }
 
 </script>
