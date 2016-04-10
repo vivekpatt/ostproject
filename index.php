@@ -1,29 +1,60 @@
 <?php
-		session_start();
 
-		if ( isset($_POST["email"]) && isset($_POST["pwd"]) ) {
-				// enters the block if login button is clicked
-				unset($_SESSION["account"]);  // Logout current user
 
-				if ($_POST[email] == 'abc@co.com' && $_POST["pwd"] == '123') {
-						$_SESSION["account"] = $_POST["email"];
-						$_SESSION["success"] = "Logged in.";
-			 
-			header('Location: userpage.php' ) ;
-						return;
-				} else {
-						$_SESSION["error"] = "enter correct details.";
-						header( 'Location: index.php' ) ;
-						return;
-				}
-	 }
 
-		 if ( isset($_POST["uid_reg"]) && isset($_POST["email_reg"]) && isset($_POST["pwd_reg"]) ) {
-			// enters the block if register button is clicked.
-			// unset($_SESSION["account"]);  // Logout current user
-			$_SESSION["error"] = "register";
-			
-	 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    session_start();
+
+    if ( isset($_POST["email"]) && isset($_POST["pwd"]) ) {
+        // enters the block if login button is clicked
+        unset($_SESSION["account"]);  // Logout current user
+
+        if ($_POST[email] == 'abc@co.com' && $_POST["pwd"] == '123') {
+            $_SESSION["account"] = $_POST["email"];
+            $_SESSION["success"] = "Logged in.";
+       
+      header('Location: userpage.php' ) ;
+            return;
+        } else {
+            $_SESSION["error"] = "enter correct details.";
+            header( 'Location: index.php' ) ;
+            return;
+            
+        }
+   }
+
+     if ( isset($_POST["uid_reg"]) && isset($_POST["email_reg"]) && isset($_POST["pwd_reg"]) ) {
+      // enters the block if register button is clicked.
+      // unset($_SESSION["account"]);  // Logout current user
+      $_SESSION["error"] = "register";
+      
+   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
