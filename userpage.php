@@ -6,7 +6,9 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="bootstrap/js/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<style type="text/css">
+  <script src="myjs.js"></script>
+
+  <style type="text/css">
 
   @font-face {
     font-family: "Kaushan Script";
@@ -36,6 +38,7 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
   .container-fluid .jumbotron{
     padding-top: 5px;
     height: 500px;
+    overflow: scroll;
   }
   .container-fluid .jumbotron .container{
     width: 50%;
@@ -87,9 +90,27 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
               </div>
               <!-- drop down ends -->
 
-            <div class="panel panel-default">
-              <div class="panel-heading">Panel Heading</div>
-              <div id="rssOutput" class="panel-body">Panel Content</div>
+            <div id="rssOutput" class="panel panel-default">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+
+                   <div class="row"><div class="col-xs-10">
+                      heading ======> $item_link
+                     </div><div class="col-xs-2 text-right">
+                       <button onClick='togglestar()' type="button" class="btn btn-default btn-lg starbutton">
+                        <span class="glyphicon glyphicon-star-empty"></span> star
+                      </button>
+                    </div>
+                  </div>
+
+
+                </div>
+
+                <div class="panel-body">
+                Panel Content =======> $item_desc
+                </div>
+              </div>
+              </div>
             </div>
 	        </div>
 		</div>
@@ -104,6 +125,14 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
 
 // rss script
  function showRSS(str) {
+
+
+var js = document.createElement('script');
+js.src = 'myjs.js';
+var first = document.getElementsByTagName('script')[0];
+first.parentNode.insertBefore(js, first);
+
+
   if (str.length==0) { 
     document.getElementById("rssOutput").innerHTML="";
     return;
@@ -126,6 +155,20 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
   }
 
 }
+
+
+
+// $(".starbutton").click(function(){
+//   alert("toggle click");
+//   $(this).children().removeClass("glyphicon-star-empty");
+//   $(this).children().addClass("glyphicon-star");
+// });
+    // $(x).removeClass('btn');
+                // $(el).parent().addClass('active') ;
+
+
+
+
 
 </script>
   </body>
