@@ -1,5 +1,6 @@
 <?php
-    session_start();
+error_reporting(0);
+   /* session_start();
 
     if ( isset($_POST["email"]) && isset($_POST["pwd"]) ) {
         // enters the block if login button is clicked
@@ -24,7 +25,15 @@
       // unset($_SESSION["account"]);  // Logout current user
       $_SESSION["error"] = "register";
       
-   }
+   }*/
+  $status=$_REQUEST['red'];
+  if($status=="true")
+  {
+      echo '<script language="javascript">';
+      echo 'alert("Invalid ID or Password")';
+      echo '</script>';
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,7 +103,7 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
                   <!-- login form [starts] -->
                     <div id="login" class="tab-pane fade in active">
                       
-                      <form role="form" method="post">
+                      <form role="form" method="post" action="query.php">
 
                         <div class="form-group">
                           <label for="email">Email address:</label>
@@ -123,13 +132,13 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
 
                         <div class="form-group">
                           <label for="email">Email address:</label>
-                          <input type="email" class="form-control" id="email" name="email_reg">
+                          <input type="email" class="form-control" id="email" name="email">
                         </div>
                         <div class="form-group">
                           <label for"pwd">Password:</label>
-                          <input type="password" class="form-control" id="pwd" name="pwd_reg">
+                          <input type="password" class="form-control" id="pwd" name="pwd">
                         </div>
-                        <button type="submit" class="btn btn-default">Register</button>
+                        <button type="submit" class="btn btn-default" name="register">Register</button>
                       </form> 
 
                     </div>
@@ -149,6 +158,7 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
           echo($_SESSION["error"]."</p>\n");
           unset($_SESSION["error"]);
       }
+  
   ?>
               </div>
             </div>
