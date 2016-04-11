@@ -1,5 +1,5 @@
 $(document).ready(function(){
-alert("star");
+alert("alert from external file");
 	$(".starbutton").click(function(){
 		if ($(this).children().hasClass("glyphicon-star-empty")) {
 			$(this).children().removeClass("glyphicon-star-empty");
