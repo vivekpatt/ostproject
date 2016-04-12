@@ -19,7 +19,7 @@
 			
 
 			$query="insert into register values('"+$usname+"','"+$email+"','"+$password+"')";
-
+			
 			$conn->query($query);
 
 			if($conn->query($query)===TRUE)

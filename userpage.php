@@ -63,20 +63,34 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
   <body>
   	<div class="container-fluid">
     	<div id="body">
-       		<nav class="navbar navbar-inverse text-left">
-          		<div class="navbar-brand container">feeder</div>
+       		<nav class="navbar navbar-inverse">
+            <div style="display: inline-flex; width: 100%;">
+              <div style="flex: 3 1 0%;">
+                <div class="navbar-brand container" style="width: 140px;">feeder</div>
+              </div>
+              <div style="flex: 2 1 0%;" class="text-right">
+                  <button id="logoutButton" type="button" class="btn btn-default btn-lg" style="background-color: rgb(75, 75, 75); margin: 6px 22px; color: white; padding: 5px 34px; border-color: black;">
+                    <span class="glyphicon glyphicon-user"></span> <span id="username">vivek</span><span id="showLogoutText" style="display:none">logout</span>
+                  </button>
+              </div>
+            </div>
+
 	        </nav>
 
 	        <div class="jumbotron">
             
+            <div style="display: inline-flex; width: 100%;">
+              <!-- flex coloumn 1 for drop down -->
+              <div style="flex: 9 1 0%;">
+              
             <!-- drop down starts -->
             <div class="dropdown text-center">
-                <button class="btn btn-default dropdown-toggle" type="button" id="menu" data-toggle="dropdown">
-                <div class="row">
-                  <div class="col-xs-2 text-right"><span class="caret"></span></div>
-                  <div class="col-xs-8 text-left" style="font-family:JosefinSans-Regular;"><span id="rsstitle">Select RSS</span></div>
-                </div>
-                </button>
+                  <button class="btn btn-default dropdown-toggle" type="button" id="menu" data-toggle="dropdown">
+                  <div class="row">
+                    <div class="col-xs-2 text-right"><span class="caret"></span></div>
+                    <div class="col-xs-8 text-left" style="font-family:JosefinSans-Regular;"><span id="rsstitle">Select RSS</span></div>
+                  </div>
+                  </button>
 
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu" style="width: 80%;">
                   <li role="presentation" class="dropdown-header">News</li>
@@ -90,6 +104,17 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
               </div>
               <!-- drop down ends -->
 
+              </div>
+              <!-- flex column 2 for fav tab -->
+              <div style="flex: 1 1 0%;">
+                  <button id="starTabButton" type="button" class="btn btn-default btn-lg" style="background-color: rgb(230, 213, 90); padding: 7px 51px;">
+                    <span class="glyphicon glyphicon-star-empty"></span> fav
+                  </button>
+              </div>
+            </div>
+
+            
+
             <div id="rssOutput" class="panel panel-default">
               <div class="panel panel-default">
                 <div class="panel-heading">
@@ -97,9 +122,9 @@ box-shadow: 0 0 10px 2px rgba(0,0,0,0.5) ;
                    <div class="row"><div class="col-xs-10">
                       heading ======> $item_link
                      </div><div class="col-xs-2 text-right">
-                       <button onClick='togglestar()' type="button" class="btn btn-default btn-lg starbutton">
+ <!--                       <button type="button" class="btn btn-default btn-lg starbutton">
                         <span class="glyphicon glyphicon-star-empty"></span> star
-                      </button>
+                      </button> -->
                     </div>
                   </div>
 

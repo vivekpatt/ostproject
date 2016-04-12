@@ -23,8 +23,8 @@ $xmlDoc->load($xml);
 $xmlDoc->formatOutput = true; // set the formatOutput attribute of domDocument to true
 
     // save XML as string or file 
-    $test1 = $xmlDoc->saveXML(); // put string in test1
-    $xmlDoc->save('test1.xml'); // save as file
+    // $test1 = $xmlDoc->saveXML(); // put string in test1
+    // $xmlDoc->save('test1.xml'); // save as file
 /*
 //get elements from "<channel>"
 $channel=$xmlDoc->getElementsByTagName('channel')->item(0);
